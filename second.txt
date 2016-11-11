@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Calculator Machine</title>
+<script type="text/javascript">
+    var e=2.71828182;
+	var π=3.14159265;
+    var numresult;
+	var str;
+	//逐个录入数据
+	function onclicknum(nums)
+	{
+	    str=document.getElementById("Screen");
+		str.value=str.value+nums; 
+                 }
+	//清零键
+	function onclickclear() 
+	{ 
+        str=document.getElementById("Screen"); 
+        str.value=""; 
+                  }
+	//退格键
+	function onclickback()
+	{
+	    str=document.getElementById("Screen");
+        str.value=str.value.substring(0,str.value.length-1);
+	}
+	//输出结果 
+    function onclickresult()
+    {
+        str=document.getElementById("Screen"); 
+        numresult=eval(str.value); 
+        str.value=numresult; 
+    }
+	//开方键
+	function onclicksqrt()
+    {
+       str.value=Math.sqrt(Number(str.value));
+    }
+	//乘方
+	function onclickfirst()
+	{
+	    var a=str.value;
+		str.value="";
+		return (a);
+	}
+	function onclicksecond()
+	{
+	    var b=str.value;
+	    str.value=Math.pow(2,b);
+	}
+	//sin函数
+	function onclicksin()
+	{
+	    if((str.value)=='e')
+		    str.value=Math.sin(Number(e)*π/180);
+		else if((str.value)=='π')
+		    str.value=Math.sin(π);
+	    else
+		    str.value=Math.sin(Number(str.value)*π/180);
+	} 
+	//cos函数
+	function onclickcos()
+	{
+	    if((str.value)=='e')
+		    str.value=Math.cos(Number(e)*π/180);
+		else if((str.value)=='π')
+		    str.value=Math.cos(π);
+	    else
+	        str.value=Math.cos(Number(str.value)*π/180);
+	}
+	//tan函数 
+	function onclicktan()
+	{
+	    if((str.value)=='e')
+		    str.value=Math.tan(Number(e)*π/180);
+		else if((str.value)=='π')
+		    str.value=Math.tan(π);
+	    else
+	        str.value=Math.tan(Number(str.value)*π/180);
+	}
+	//log2函数
+	function onclicklog2()
+	{
+	    if((str.value)=='e')
+		    str.value=(Math.log(e))/(Math.log(2));
+		else if((str.value)=='π')
+		    str.value=(Math.log(π))/(Math.log(2));
+	    else
+	        str.value=(Math.log(str.value))/(Math.log(2));
+	}
+	//log10函数
+	function onclicklog10()
+	{
+	    if((str.value)=='e')
+		    str.value=(Math.log(e))/(Math.log(10));
+		else if((str.value)=='π')
+		    str.value=(Math.log(π))/(Math.log(10));
+	    else
+	        str.value=(Math.log(str.value))/(Math.log(10));
+	}
+	//ln函数
+	function onclickln()
+	{
+	    if((str.value)=='e')
+		    str.value=1;
+		else if((str.value)=='π')
+		    str.value=(Math.log(π))/(Math.log(e));
+	    else
+	        str.value=(Math.log(str.value))/(Math.log(e));
+	}
+	//二进制
+	function onclicktwo()
+	{
+	    var h=str.value;
+		str.value=Number(h).toString(2);
+	}
+	//八进制
+	function onclickeight()
+	{
+	    var h=str.value;
+		str.value=Number(h).toString(8);
+	}
+	//十六进制
+	function onclicksixteen()
+	{
+	    var h=str.value;
+		str.value=Number(h).toString(16);
+	}
+	//裴波拉契数列
+	function onclickpPeiBe()
+	{
+	    var c=str.value;
+		var m=(1+Math.sqrt(5))/2;
+		var n=(1-Math.sqrt(5))/2;
+		str.value=1/Math.sqrt(5)*(Math.pow(m,c)-Math.pow(n,c));
+	}
+</script>
+<style type="text/css">
+    .ball {
+              background: url(54bf5a8752cedb9ec03839d093c2f335.jpg);
+              background-size:cover;
+          }
+</style>
+</head>
+
+<body class="ball">
+
+       <table style="height: 430px;width :1000px;border: solid 1px;text-align: center;background: url(21b42cdb5bdfce534bb710c166994c74.jpg);margin: auto">
+	       <tr><td colspan="9"><input type="text" id="Screen" style="font-size: 50px;width: 1120px;height: 90px;background: #bef7f4" /></td></tr>
+		   <tr>
+		   <td><input type="button" value="二进制" id="" onclick="onclicktwo()" style="font-size: 30px;width: 120px;height: 70px;background: #ccccff"/></td>
+		   <td><input type="button" value="sin" id="sin" onclick="onclicksin()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffff"/></td>
+		   <td><input type="button" value="cos" id="cos" onclick="onclickcos()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffff"/></td>
+		   <td><input type="button" value="tan" id="tans" onclick="onclicktan()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffff"/></td>
+		   </tr>
+		   <tr>
+		   <td><input type="button" value="八进制" id="" onclick="onclickeight()" style="font-size: 30px;width: 120px;height: 70px;background: #ccccff"/></td>
+		   <td><input type="button" value="log.2" id="" onclick="onclicklog2()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffcc"/></td>
+		   <td><input type="button" value="log.10" id="" onclick="onclicklog10()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffcc"/></td>
+		   <td><input type="button" value="ln" id="" onclick="onclickln()" style="font-size: 30px;width: 120px;height: 70px;background: #99ffcc"/></td>
+		   <td><input type="button" value="1" id="1" onclick="onclicknum(1)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="2" id="2" onclick="onclicknum(2)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="3" id="3" onclick="onclicknum(3)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="+" id="plus" onclick="onclicknum('+')" style="font-size: 30px;width: 120px;height: 70px;background: #98caec"/></td>
+		   <td><input type="button" value="清零" id="clear" onclick="onclickclear()" style="font-size: 30px;width: 120px;height: 70px;background: #72fc6b"/></td>
+		   </tr>
+		   <tr>
+		   <td><input type="button" value="十六进制" id="" onclick="onclicksixteen()" style="font-size: 25px;width: 120px;height: 70px;background: #ccccff"/></td>
+		   <td><input type="button" value="√" id="" onclick="onclicksqrt()" style="font-size: 30px;width: 120px;height: 70px;background: #ffccff"/></td>
+		   <td><input type="button" value="a^" id="" onclick="onclickfirst()" style="font-size: 30px;width: 120px;height: 70px;background: #ffcccc"/></td>
+		   <td><input type="button" value="b" id="" onclick="onclicksecond()" style="font-size: 30px;width: 120px;height: 70px;background: #ffcccc"/></td>
+		   <td><input type="button" value="4" id="4" onclick="onclicknum(4)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="5" id="5" onclick="onclicknum(5)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="6" id="6" onclick="onclicknum(6)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="-" id="sub" onclick="onclicknum('-')" style="font-size: 30px;width: 120px;height: 70px;background: #98caec"/></td>
+		   <td><input type="button" value="退格" id="back" onclick="onclickback()" style="font-size: 30px;width: 120px;height: 70px;background: #72fc6b"/></td>
+		   </tr>
+		   <tr>
+		   <td><input type="button" value="(" id="" onclick="onclicknum('(')" style="font-size: 30px;width: 120px;height: 70px;background: #ffffcc"/></td>
+		   <td><input type="button" value=")" id="" onclick="onclicknum(')')" style="font-size: 30px;width: 120px;height: 70px;background: #ffffcc"/></td>
+		   <td><input type="button" value="e" id="" onclick="onclicknum('e')" style="font-size: 30px;width: 120px;height: 70px;background: #ccff33"/></td>
+		   <td><input type="button" value="π" id="PI" onclick="onclicknum('π')" style="font-size: 30px;width: 120px;height: 70px;background: #ccff33"/></td>
+		   <td><input type="button" value="7" id="7" onclick="onclicknum(7)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="8" id="8" onclick="onclicknum(8)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+	       <td><input type="button" value="9" id="9" onclick="onclicknum(9)" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+	       <td> <input type="button" value="*" id="mul" onclick="onclicknum('*')" style="font-size: 30px;width: 120px;height: 70px;background: #98caec"/></td>		        
+		   <td rowspan="2"><input type="button" value="=" id="result" onclick="onclickresult()" style="font-size: 30px;width: 120px;height: 140px;background: #72fc6b"/></td>
+		   </tr>
+		   <tr>
+		   <td colspan="4"><input type="button" value="裴波拉契数列" id="" onclick="onclickpPeiBe()" style="font-size: 30px;width: 494px;height: 70px;background: #f39cfb"/></td>
+		   <td colspan="2"><input type="button" value="0" id="0" onclick="onclicknum(0)" style="font-size: 30px;width: 246px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="." id="point" onclick="onclicknum('.')" style="font-size: 30px;width: 120px;height: 70px;background: #ffde00"/></td>
+		   <td><input type="button" value="/" id="division" onclick="onclicknum('/')" style="font-size: 30px;width: 120px;height: 70px;background: #98caec"/></td>
+		   </tr>
+       </table>
+	    
+</body>
+</html>
